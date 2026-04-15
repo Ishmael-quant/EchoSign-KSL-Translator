@@ -15,12 +15,12 @@ In parallel, spoken input is processed through Vosk, converting audio into text,
 By combining computer vision, pattern recognition, and natural language processing, the system creates a seamless bridge between speech and sign language—transforming silent gestures into voice and spoken words into visual meaning—bringing communication closer, more inclusive, and profoundly human-centered.
 
 ##Features:
-It has features like :
- *1.Letter recognition                                                                                                                       
- *2.Word formation                                                                                                                            
- *3.Conversation Logging                                                                                                                          
- *4.Real_time hand detection                                                                                                                     
- *5.Accuracy of 98%                                                                                                                             
+It has features like :                                                                                                                  
+ * 1.Letter recognition                                                                                                                       
+ * 2.Word formation                                                                                                                            
+ * 3.Conversation Logging                                                                                                                          
+ * 4.Real_time hand detection                                                                                                                     
+ * 5.Accuracy of 98%                                                                                                                             
 
  ##Challenges Faced
   * Poor lighting affecting detection
