@@ -16,11 +16,11 @@ By combining computer vision, pattern recognition, and natural language processi
 
 ##Features:
 It has features like :
- 1.Letter recognition
- 2.Word formation
- 3.Conversation Logging
- 4.Real_time hand detection
- 5.Accuracy of 98%
+*1.Letter recognition
+*2.Word formation
+*3.Conversation Logging
+*4.Real_time hand detection
+*5.Accuracy of 98%
 
  ##Challenges Faced
   * Poor lighting affecting detection
