@@ -20,12 +20,14 @@ It has features like :
  * 2.Word formation                                                                                                                            
  * 3.Conversation Logging                                                                                                                          
  * 4.Real_time hand detection                                                                                                                     
- * 5.Accuracy of 98%                                                                                                                             
+ * 5.Accuracy of 98%
+ * 6.Confidence Filtering                                                                                                                            
 
  ##Challenges Faced
   * Poor lighting affecting detection
   * Similar gestures causing confusion
   * Camera quality limitations
+  * Misrecognization  of words
 
 ##Solutions Implemented
  * Improved lighting conditions
