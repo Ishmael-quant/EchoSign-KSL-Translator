@@ -14,7 +14,7 @@ Using MediaPipe, the application detects and tracks hand landmarks in real time,
 In parallel, spoken input is processed through Vosk, converting audio into text, which is then refined and mapped into visual sign representations. 
 By combining computer vision, pattern recognition, and natural language processing, the system creates a seamless bridge between speech and sign language—transforming silent gestures into voice and spoken words into visual meaning—bringing communication closer, more inclusive, and profoundly human-centered.
 
-##Features:
+##Features:                                                                                                                                 
 It has features like :                                                                                                                  
  * 1.Letter recognition                                                                                                                       
  * 2.Word formation                                                                                                                            
