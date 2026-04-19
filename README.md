@@ -61,3 +61,5 @@ It has features like :
  * Limited vocabulary
  * Works best under good lighting
  * Sometimes slow
+
+Ishmael Mboya © 2026
