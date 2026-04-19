@@ -2,7 +2,7 @@
 
 Communication is a fundamental part of human life. It allows people to share ideas, express feelings, and build relationships. Yet, for deaf and hard-of-hearing individuals, communication is often limited by a gap that society has not fully bridged.
 The application uses computer vision and machine learning techniques to recognize hand gestures and convert them into text and speech. It also processes spoken language and converts it into readable text, enabling smoother interaction.
-                                                                                                                                                                    
+                                                                                                                                                    
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 ##HOW IT WORKS                                                                                                                                       
 This system captures human communication through two intelligent pipelines: a camera-based vision module and a speech recognition module. 
