@@ -62,4 +62,15 @@ It has features like :
  * Works best under good lighting
  * Sometimes slow
 
+Images
+<img width="1440" height="900" alt="Image" src="https://github.com/user-attachments/assets/979a1f6e-5ab8-417b-9550-00d14c014f96" />
+
+<img width="642" height="512" alt="Image" src="https://github.com/user-attachments/assets/02a38d6b-c836-45b5-aa36-14371f111e82" />
+
+<img width="730" height="467" alt="Image" src="https://github.com/user-attachments/assets/6ead6cd2-6772-44f3-b22f-0f4d547f5ff9" />
+
+<img width="979" height="512" alt="Image" src="https://github.com/user-attachments/assets/1b7e9365-fcc5-4107-8ff8-8001517e4385" />
+
+<img width="377" height="330" alt="Image" src="https://github.com/user-attachments/assets/65810b2d-328c-44dc-972e-7e01f48d0ef6" />
+
 Ishmael Mboya © 2026
