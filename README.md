@@ -2,8 +2,7 @@
 
 Communication is a fundamental part of human life. It allows people to share ideas, express feelings, and build relationships. Yet, for deaf and hard-of-hearing individuals, communication is often limited by a gap that society has not fully bridged.
 The application uses computer vision and machine learning techniques to recognize hand gestures and convert them into text and speech. It also processes spoken language and converts it into readable text, enabling smoother interaction.
-
-
+                                                                                                                                                                    
 
 ##HOW IT WORKS                                                                                                                                       
 This system captures human communication through two intelligent pipelines: a camera-based vision module and a speech recognition module. 
@@ -11,13 +10,14 @@ Using MediaPipe, the application detects and tracks hand landmarks in real time,
 In parallel, spoken input is processed through Vosk, converting audio into text, which is then refined and mapped into visual sign representations. 
 By combining computer vision, pattern recognition, and natural language processing, the system creates a seamless bridge between speech and sign language—transforming silent gestures into voice and spoken words into visual meaning—bringing communication closer, more inclusive, and profoundly human-centered.
 
+                                                                                                                                                               
 ##WHY I CAME UP WITH THIS PROJECT/INTRODUCTION                                                                                                      
 There was a day when i went to competition in a school that had deaf students.The students had no other way of communication and socializing with us other than just writing on papers. Eventually, the papers got filled up and they had to search for another paper, even plucking them out of their books just to talk to us. During thier project showcase, they had to make sure they had a sign language translator. What if the translator was ubsent? How would they showcase their project and there was a big line of young inventors ready to showcase their project.  Most of the deaf/dumb (it was a mixed special school) students' projects were not related to technology. In my view, i knew they avoided technology projects because they need time to be fully understood.
 I started thinking about how they learn sciences(Physics, Chemistry, Biology and maybe Computer studies). What if they did not have fully specialised / Good teachers that have a good background of teaching sciences well.
 
 This made me think of how i can help them, which led me to think what if there was a device that captures signs then convert them to speech? This led me to think about how AI can be used to detect the sign language then convert it to speech. Thiss made a hearing individual communicate easily with a non-hearing person.What if there was a non-speaking person who wanted to communicate with a speaking person? I come up with a reversed version of the project which was SIGN-TO-SPEECH to SPEECH-TO-SIGN. This solved both problems.                     
 
-
+                                                                                                                                                       
 ##DEVELOPMENT PROCESS                                                                                                                                
 The development of the EchoSign system followed an iterative and practical approach, focusing on building a functional and reliable communication tool rather than a theoretically perfect one. The process began with problem identification, where the need to bridge communication between speech users and sign language users was clearly defined. Based on this, the system was designed with two core components: a sign recognition module and a speech-to-sign translation module.
 
