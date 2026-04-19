@@ -27,7 +27,7 @@ It has features like :
  * 5.Accuracy of 98%
  * 6.Confidence Filtering                                                                                                                            
 
-##Development Process
+##Development Process                                                                                                                                
 The development of the EchoSign system followed an iterative and practical approach, focusing on building a functional and reliable communication tool rather than a theoretically perfect one. The process began with problem identification, where the need to bridge communication between speech users and sign language users was clearly defined. Based on this, the system was designed with two core components: a sign recognition module and a speech-to-sign translation module.
 
 During implementation, the sign recognition module was developed using MediaPipe to detect and track hand landmarks in real time. These landmarks were processed and normalized to ensure consistency regardless of hand position or distance from the camera. A machine learning model was then trained using scikit-learn on manually collected data representing different hand signs. The model was integrated into a live prediction system, where additional techniques such as confidence filtering and temporal control were applied to reduce noise and improve stability.
