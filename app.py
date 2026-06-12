@@ -6,13 +6,45 @@ import time
 import os
 import joblib
 import mediapipe as mp
-import pyttsx3
 import json
 import sounddevice as sd
 from vosk import Model, KaldiRecognizer
 from datetime import datetime
 import math
 import difflib
+import queue
+import asyncio
+import edge_tts
+import pygame
+
+# -------- EDGE TTS SETUP --------
+speech_queue = queue.Queue()
+loop = asyncio.new_event_loop()
+
+async def speak_async(text):
+    communicate = edge_tts.Communicate(text, "en-US-JennyNeural")
+    await communicate.save("temp_speech.mp3")
+    pygame.mixer.init()
+    pygame.mixer.music.load("temp_speech.mp3")
+    pygame.mixer.music.play()
+    while pygame.mixer.music.get_busy():
+        await asyncio.sleep(0.1)
+    pygame.mixer.quit()
+    os.remove("temp_speech.mp3")
+
+def speech_worker():
+    asyncio.set_event_loop(loop)
+    while True:
+        text = speech_queue.get()
+        if text is None:
+            break
+        try:
+            loop.run_until_complete(speak_async(text))
+        except Exception as e:
+            print("Speech Error:", e)
+        speech_queue.task_done()
+
+threading.Thread(target=speech_worker, daemon=True).start()
 
 # -------- LOAD MODEL --------
 model = joblib.load("model.pkl")
@@ -40,9 +72,6 @@ hands = mp_hands.Hands(
     min_tracking_confidence=0.5
 )
 mp_draw = mp.solutions.drawing_utils
-
-# -------- TTS --------
-engine = pyttsx3.init()
 
 # -------- PATHS --------
 SIGN_FOLDER = "Signs"
@@ -173,6 +202,7 @@ class App:
                     self.sign_text.see(tk.END)
 
                     save_conversation(current_word)
+                    speech_queue.put(current_word)
 
                     current_word = ""
                     time.sleep(0.5)
@@ -196,24 +226,17 @@ class App:
     def stop_sign(self):
         self.running_sign = False
 
-    # -------- SPEECH LOOP --------
+    # -------- SPEECH LOOP (FIXED) --------
     def speech_loop(self):
         model_vosk = Model(MODEL_PATH)
         recognizer = KaldiRecognizer(model_vosk, 16000)
 
         sentence = ""
         last_speech_time = time.time()
+        audio_queue = queue.Queue()
 
         def callback(indata, frames, time_info, status):
-            nonlocal sentence, last_speech_time
-
-            if recognizer.AcceptWaveform(bytes(indata)):
-                result = json.loads(recognizer.Result())
-                text = result.get("text", "")
-
-                if text:
-                    sentence += " " + text
-                    last_speech_time = time.time()
+            audio_queue.put(bytes(indata))
 
         with sd.RawInputStream(
             samplerate=16000,
@@ -223,19 +246,36 @@ class App:
             callback=callback
         ):
             while self.running_speech:
-                time.sleep(0.1)
-
-                if sentence != "" and time.time() - last_speech_time > 3:
-                    final_text = correct_text(sentence.strip())
-
-                    self.speech_text.insert(tk.END, final_text + "\n")
-                    self.speech_text.see(tk.END)
-
-                    save_conversation(final_text)
-
-                    self.show_signs(final_text.upper())
-
-                    sentence = ""
+                try:
+                    data = audio_queue.get(timeout=0.1)
+                    
+                    if recognizer.AcceptWaveform(data):
+                        result = json.loads(recognizer.Result())
+                        text = result.get("text", "")
+                        
+                        if text:
+                            sentence += " " + text
+                            last_speech_time = time.time()
+                    else:
+                        if sentence.strip() and time.time() - last_speech_time > 2:
+                            final_text = correct_text(sentence.strip())
+                            self.speech_text.insert(tk.END, final_text + "\n")
+                            self.speech_text.see(tk.END)
+                            save_conversation(final_text)
+                            speech_queue.put(final_text)
+                            self.show_signs(final_text.upper())
+                            sentence = ""
+                            
+                except queue.Empty:
+                    if sentence.strip() and time.time() - last_speech_time > 2:
+                        final_text = correct_text(sentence.strip())
+                        self.speech_text.insert(tk.END, final_text + "\n")
+                        self.speech_text.see(tk.END)
+                        save_conversation(final_text)
+                        speech_queue.put(final_text)
+                        self.show_signs(final_text.upper())
+                        sentence = ""
+                    continue
 
     def start_speech(self):
         if not self.running_speech:

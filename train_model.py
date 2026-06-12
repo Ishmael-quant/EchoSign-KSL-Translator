@@ -4,12 +4,12 @@ from sklearn.ensemble import RandomForestClassifier
 import joblib
 
 # LOAD DATA 
-data = pd.read_csv("dataset.csv", header=None)
+data = pd.read_csv("clean_dataset.csv", header=None)
 
  #FILTER LABELS 
 allowed_labels = ['A', 'B', 'C', 'L', 'Y', 'F', 'T']
 data = data[data.iloc[:, -1].isin(allowed_labels)]
-data = pd.read_csv("dataset.csv", header=None)
+data = pd.read_csv("clean_dataset.csv", header=None)
 
  #SPLIT FEATURES & LABELS 
 X = data.iloc[:, :-1]   # all columns except last
