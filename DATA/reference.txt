@@ -1,0 +1,7 @@
+Jefwa G. Mweri-Kenya Sign Language (KSL) Phonology: Articulatory
+Properties and Phonological Processes
+
+
+#######INSTALLS
+py 3.10.11
+py -3.10 -m pip install numpy opencv-python mediapipe scikit-learn pandas joblib

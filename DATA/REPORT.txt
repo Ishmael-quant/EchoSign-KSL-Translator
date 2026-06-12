@@ -1,0 +1,140 @@
+# AI-Based Sign Language to Speech and Text Translator
+
+## 1. Introduction
+Communication between deaf and hearing individuals is often limited by the lack of a common language. Sign language is widely used by deaf individuals, but many people do not understand it.
+
+This project presents an Artificial Intelligence (AI) system that translates hand signs into text and speech in real time, helping bridge the communication gap.
+
+---
+
+## 2. Problem Statement
+Many people cannot communicate effectively with individuals who use sign language. Existing solutions are either expensive, require internet access, or are not adapted to local contexts.
+
+This project aims to create a simple, affordable, and offline solution.
+---
+
+## 3. Objectives
+* To detect hand gestures using a camera
+* To classify sign language gestures into letters
+* To convert letters into words and sentences
+* To convert text into speech
+* To store conversation history
+---
+
+## 4. Methodology
+### 4.1 Hand Detection
+The system uses a computer vision framework to detect hand landmarks (21 key points on the hand).
+
+### 4.2 Data Collection
+* Hand gestures were captured using a camera
+* Each gesture was labeled (A, B, C, etc.)
+* 80–120 samples per gesture were collected
+
+### 4.3 Data Processing
+* Landmarks were normalized relative to the wrist
+* This ensures consistency regardless of hand position
+
+### 4.4 Model Training
+* A machine learning model (Random Forest) was trained
+* Data was split into training and testing sets
+* Accuracy was evaluated after training
+
+### 4.5 Prediction System
+* Real-time hand tracking
+* Gesture classification
+* Letter-to-word formation
+
+### 4.6 Text-to-Speech
+* Converts generated text into spoken words
+
+### 4.7 Error Correction
+* Uses similarity matching to correct misspelled words
+
+### 4.8 Conversation Saving
+* Stores translated sentences in a file with timestamps
+---
+
+## 5. Features of the System
+* Real-time hand detection
+* High accuracy (~98%)
+* Letter recognition
+* Word formation
+* Auto spacing using pauses
+* Auto speech output
+* Error correction
+* Conversation logging
+---
+
+## 6. Tools and Technologies
+* Python programming language
+* Computer vision libraries
+* Machine learning libraries
+* Text-to-speech engine
+---
+
+## 7. Results
+* Achieved approximately 98% accuracy
+* Successfully translated sign language into readable and spoken output
+* System works in real-time with minimal delay
+---
+
+## 8. Challenges Faced
+* Poor lighting affecting detection
+* Similar gestures causing confusion
+* Camera quality limitations
+* Overfitting (initial 100% accuracy issue)
+---
+
+## 9. Solutions Implemented
+* Improved lighting conditions
+* Reduced similar gesture classes
+* Added confidence filtering
+* Increased dataset size and variation
+---
+
+## 10. Limitations
+* Only supports static gestures
+* Does not support motion-based signs (e.g., J, Z)
+* Limited vocabulary
+* Works best under good lighting
+---
+
+## 11. Future Improvements
+* Add dynamic gesture recognition
+* Expand vocabulary
+* Improve UI/UX
+* Add mobile application support
+* Integrate full sign language grammar
+---
+
+## 12. Conclusion
+The project successfully demonstrates how AI can be used to bridge communication gaps. It provides a simple and effective solution for translating sign language into speech and text.
+---
+
+## 13. References
+* Online documentation for machine learning and computer vision tools
+* Sign language reference materials
+
+
+
+
+1. Why didn’t you include all letters?
+“Some letters require motion or are visually similar, which reduces accuracy. I focused on static, distinguishable signs to ensure reliability.”
+
+2. Why was your accuracy 1.0 at first?
+“That was due to overfitting. After adding more data and variation, the model became more realistic and stable.”
+
+3. Why use this model?
+“I used a Random Forest model because it is simple, fast, and performs well for structured data like hand landmarks.”
+
+4. What are the limitations?
+“The system currently supports only static gestures and works best under good lighting conditions.”
+
+5. How can this be improved?
+“Future improvements include dynamic gesture recognition, mobile integration, and expanding the vocabulary.”
+
+6. Why is lighting important?
+“The system relies on visual input, so poor lighting affects hand detection and reduces accuracy.”
+
+7. Is it real-time?
+“Yes, the system processes frames instantly and provides real-time predictions.”
