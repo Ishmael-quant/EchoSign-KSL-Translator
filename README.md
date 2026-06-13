@@ -60,6 +60,7 @@ It has features like :
  * Does not support input of motion-based signs (e.g., J, Z)
  * Limited vocabulary
  * Works best under good lighting
+ * Supports one type of sign language
  * Sometimes slow
 
 Images
